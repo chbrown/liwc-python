@@ -65,6 +65,21 @@ print(gettysburg_counts)
 ```
 
 
+### Development
+
+Generate reStructuredText re-formatting from canonical Markdown-formatted `README.md`.
+
+    pandoc -o README.rst README.md
+
+Commands for publishing to PyPI, current as of 2017-10-20:
+
+    pip install -U twine wheel
+    python setup.py sdist
+    python setup.py bdist_wheel --universal
+    # (ensure ~/.pypirc has your PyPI credentials)
+    twine upload dist/*
+
+
 ## License
 
 Copyright (c) 2012-2017 Christopher Brown. [MIT Licensed](LICENSE.txt).
