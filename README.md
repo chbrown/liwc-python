@@ -1,6 +1,6 @@
 # `liwc`
 
-Linguistic Inquiry Word Count (LIWC) analyzer.
+Linguistic Inquiry and Word Count (LIWC) analyzer.
 
 The LIWC lexicon is proprietary, so it is _not_ included in this repository,
 but this Python package requires it.
