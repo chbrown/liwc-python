@@ -1,5 +1,7 @@
 # `liwc`
 
+[![PyPI version](https://badge.fury.io/py/liwc.svg)](https://pypi.python.org/pypi/liwc)
+
 Linguistic Inquiry and Word Count (LIWC) analyzer.
 
 The LIWC lexicon is proprietary, so it is _not_ included in this repository,
