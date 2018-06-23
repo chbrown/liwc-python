@@ -1,4 +1,4 @@
-Copyright © 2012-2017 Christopher Brown <io@henrian.com>
+Copyright © 2012-2018 Christopher Brown <io@henrian.com>
 
 MIT License
 

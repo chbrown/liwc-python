@@ -1,6 +1,6 @@
 # `liwc`
 
-[![PyPI version](https://badge.fury.io/py/liwc.svg)](https://pypi.python.org/pypi/liwc)
+[![PyPI version](https://badge.fury.io/py/liwc.svg)](https://pypi.org/project/liwc/)
 
 Linguistic Inquiry and Word Count (LIWC) analyzer.
 
@@ -67,4 +67,4 @@ print(gettysburg_counts)
 
 ## License
 
-Copyright (c) 2012-2017 Christopher Brown. [MIT Licensed](LICENSE.txt).
+Copyright (c) 2012-2018 Christopher Brown. [MIT Licensed](LICENSE.txt).
