@@ -1,6 +1,7 @@
 # `liwc`
 
 [![PyPI version](https://badge.fury.io/py/liwc.svg)](https://pypi.org/project/liwc/)
+[![Travis CI Build Status](https://travis-ci.org/chbrown/liwc-python.svg?branch=master)](https://travis-ci.org/chbrown/liwc-python)
 
 Linguistic Inquiry and Word Count (LIWC) analyzer.
 
