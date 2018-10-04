@@ -16,7 +16,7 @@ def read_dic(filepath):
     for line in open(filepath):
         tsv = line.strip()
         if tsv:
-            parts = tsv.split(None, 1)
+            parts = tsv.split()
             if parts[0] == '%':
                 mode += 1
             elif mode == 1:
