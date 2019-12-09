@@ -1,1 +1,3 @@
-from setuptools import setup; setup()  # see setup.cfg
+from setuptools import setup
+
+setup()

@@ -55,9 +55,9 @@ def _search_trie(trie, token, token_i=0):
     '''
     if '*' in trie:
         return trie['*']
-    elif '$' in trie and token_i == len(token):
+    if '$' in trie and token_i == len(token):
         return trie['$']
-    elif token_i < len(token):
+    if token_i < len(token):
         char = token[token_i]
         if char in trie:
             return _search_trie(trie[char], token, token_i + 1)
