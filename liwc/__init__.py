@@ -1,6 +1,13 @@
 from .dic import read_dic
 from .trie import build_trie, search_trie
 
+try:
+    import pkg_resources
+
+    __version__ = pkg_resources.get_distribution("liwc").version
+except Exception:
+    __version__ = None
+
 
 def load_token_parser(filepath):
     """
