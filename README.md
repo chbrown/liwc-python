@@ -35,7 +35,6 @@ Install from [PyPI](https://pypi.python.org/pypi/liwc):
 
 ```python
 import re
-from collections import Counter
 
 def tokenize(text):
     # you may want to use a smarter tokenizer
@@ -57,13 +56,23 @@ gettysburg = '''Four score and seven years ago our fathers brought forth on
   dedicated, can long endure. We are met on a great battlefield of that war.
   We have come to dedicate a portion of that field, as a final resting place
   for those who here gave their lives that that nation might live. It is
-  altogether fitting and proper that we should do this.'''
+  altogether fitting and proper that we should do this.'''.lower()
 gettysburg_tokens = tokenize(gettysburg)
-# now flatmap over all the categories in all of the tokens using a generator:
-gettysburg_counts = Counter(category for token in gettysburg_tokens for category in parse(token))
-# and print the results:
-print(gettysburg_counts)
 ```
+
+Now, count all the categories in all of the tokens, and print the results:
+
+```python
+from collections import Counter
+gettysburg_counts = Counter(category for token in gettysburg_tokens for category in parse(token))
+print(gettysburg_counts)
+#=> Counter({'funct': 58, 'pronoun': 18, 'cogmech': 17, ...})
+```
+
+### _N.B._:
+
+* The LIWC lexicon only matches lowercase strings, so you will most likely want to lowercase your input text before passing it to `parse(...)`.
+  In the example above, I call `.lower()` on the entire string, but you could alternatively incorporate that into your tokenization process (e.g., by using [spaCy](https://spacy.io/api/token)'s `token.lower_`).
 
 
 ## License
