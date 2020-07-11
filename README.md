@@ -3,7 +3,11 @@
 [![PyPI version](https://badge.fury.io/py/liwc.svg)](https://pypi.org/project/liwc/)
 [![Travis CI Build Status](https://travis-ci.org/chbrown/liwc-python.svg?branch=master)](https://travis-ci.org/chbrown/liwc-python)
 
-Linguistic Inquiry and Word Count (LIWC) analyzer.
+This repository is a Python package implementing two basic functions:
+1. Loading (parsing) a Linguistic Inquiry and Word Count (LIWC) dictionary from the `.dic` file format.
+2. Using that dictionary to count category matches on provided texts.
+
+This is not an official LIWC product nor is it in any way affiliated with the LIWC development team or Receptiviti.
 
 
 ## Obtaining LIWC
