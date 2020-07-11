@@ -5,13 +5,24 @@
 
 Linguistic Inquiry and Word Count (LIWC) analyzer.
 
-The LIWC lexicon is proprietary, so it is _not_ included in this repository,
-but this Python package requires it.
-The lexicon data can be acquired (purchased) from [liwc.net](http://liwc.net/).
-This package reads from the `LIWC2007_English100131.dic` (MD5: `2a8c06ee3748218aa89b975574b4e84d`) file,
-which must be available on any system where this package is used.
 
-The LIWC2007 `.dic` format looks like this:
+## Obtaining LIWC
+
+The LIWC lexicon is proprietary, so it is _not_ included in this repository.
+
+The lexicon data can be acquired (purchased) from [liwc.net](http://liwc.net/).
+
+
+## Setup
+
+Install from [PyPI](https://pypi.python.org/pypi/liwc):
+
+    pip install liwc
+
+
+## Example
+
+This example reads the LIWC dictionary from a file named `LIWC2007_English100131.dic`, which looks like this:
 
     %
     1   funct
@@ -24,14 +35,18 @@ The LIWC2007 `.dic` format looks like this:
     [...]
 
 
-## Setup
+#### Loading the lexicon
 
-Install from [PyPI](https://pypi.python.org/pypi/liwc):
+```python
+import liwc
+parse, category_names = liwc.load_token_parser('LIWC2007_English100131.dic')
+```
 
-    pip install -U liwc
+* `parse` is a function from a token of text (a string) to a list of matching LIWC categories (a list of strings)
+* `category_names` is all LIWC categories in the lexicon (a list of strings)
 
 
-## Example
+#### Analyzing text
 
 ```python
 import re
@@ -41,14 +56,6 @@ def tokenize(text):
     for match in re.finditer(r'\w+', text, re.UNICODE):
         yield match.group(0)
 
-import liwc
-parse, category_names = liwc.load_token_parser('LIWC2007_English100131.dic')
-```
-
-* `parse` is a function from a token of text (a string) to a list of matching LIWC categories (a list of strings)
-* `category_names` is all LIWC categories in the lexicon (a list of strings)
-
-```python
 gettysburg = '''Four score and seven years ago our fathers brought forth on
   this continent a new nation, conceived in liberty, and dedicated to the
   proposition that all men are created equal. Now we are engaged in a great
