@@ -16,6 +16,12 @@ The LIWC lexicon is proprietary, so it is _not_ included in this repository.
 
 The lexicon data can be acquired (purchased) from [liwc.net](http://liwc.net/).
 
+* If you are a researcher at an academic institution, please contact [Dr. James W. Pennebaker](https://liberalarts.utexas.edu/psychology/faculty/pennebak) directly.
+* For commercial use, contact [Receptiviti](https://www.receptiviti.com/), which is the company that holds exclusive commercial license.
+
+Finally, please do not open an issue in this repository with the intent of subverting encryption implemented by the LIWC developers.
+If the version of LIWC that you purchased (or otherwise legitimately obtained as a researcher at an academic institution) does not provide a machine-readable `*.dic` file, please contact the distributor directly.
+
 
 ## Setup
 
