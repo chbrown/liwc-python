@@ -77,5 +77,5 @@ print(gettysburg_counts)
 
 ## License
 
-Copyright (c) 2012-2019 Christopher Brown.
+Copyright (c) 2012-2020 Christopher Brown.
 [MIT Licensed](LICENSE.txt).
