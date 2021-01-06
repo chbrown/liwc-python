@@ -33,7 +33,7 @@ def read_dic(filepath):
     * `lexicon` is a dict mapping string patterns to lists of category names
     * `category_names` is a list of category names (as strings)
     """
-    with open(filepath) as lines:
+    with open(filepath, encoding='utf8') as lines:
         # read up to first "%" (should be very first line of file)
         for line in lines:
             if line.strip() == "%":
