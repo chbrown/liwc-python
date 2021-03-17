@@ -23,7 +23,7 @@ def _parse_lexicon(lines, category_mapping):
     for line in lines:
         line = line.strip()
         parts = line.split("\t")
-        yield parts[0], [category_mapping[category_id] for category_id in parts[1:]]
+        yield parts[0], [category_mapping[category_id] for category_id in parts[1:] if category_id]
 
 
 def read_dic(filepath):
