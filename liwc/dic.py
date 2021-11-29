@@ -26,7 +26,7 @@ def _parse_lexicon(lines, category_mapping):
         yield parts[0], [category_mapping[category_id] for category_id in parts[1:]]
 
 
-def read_dic(filepath):
+def read_dic(filepath, encoding = "utf-8"):
     """
     Reads a LIWC lexicon from a file in the .dic format, returning a tuple of
     (lexicon, category_names), where:
