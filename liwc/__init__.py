@@ -17,7 +17,7 @@ def load_token_parser(filepath, encoding = "utf-8"):
       empty) of matching categories
     * `category_names` is a list of strings representing all LIWC categories in
       the lexicon
-    add encoding with utf-8 by default
+    add default encoding is utf-8. `encoding` can be overwritten by other encoding such as "windows-1252"
     """
     lexicon, category_names = read_dic(filepath, encoding = encoding)
     trie = build_trie(lexicon)
