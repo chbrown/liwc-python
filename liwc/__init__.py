@@ -9,7 +9,7 @@ except Exception:
     __version__ = None
 
 
-def load_token_parser(filepath):
+def load_token_parser(filepath, encoding = "utf-8"):
     """
     Reads a LIWC lexicon from a file in the .dic format, returning a tuple of
     (parse, category_names), where:
@@ -17,8 +17,9 @@ def load_token_parser(filepath):
       empty) of matching categories
     * `category_names` is a list of strings representing all LIWC categories in
       the lexicon
+    add encoding with utf-8 by default
     """
-    lexicon, category_names = read_dic(filepath)
+    lexicon, category_names = read_dic(filepath, encoding = encoding)
     trie = build_trie(lexicon)
 
     def parse_token(token):
