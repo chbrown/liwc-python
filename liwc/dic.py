@@ -47,7 +47,7 @@ def read_dic(filepath, encoding = "utf-8"):
     except UnicodeDecodeError:
         # decode with European languages with windows-1252 Danish, Dutch, English, French, German, Italian, Norwegian,
         # Portuguese, Swedish
-        with open(filepath, encoding= "windows-1252") as lines:
+        with open(filepath, encoding="windows-1252") as lines:
         # read up to first "%" (should be very first line of file)
             for line in lines:
                 if line.strip() == "%":
@@ -57,3 +57,6 @@ def read_dic(filepath, encoding = "utf-8"):
             # read lexicon (a mapping from matching string to a list of category names)
             lexicon = dict(_parse_lexicon(lines, category_mapping))
         return lexicon, list(category_mapping.values())
+    except UnicodeDecodeError as e:
+        print("encoding requires correct encoding")
+
