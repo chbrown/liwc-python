@@ -26,20 +26,37 @@ def _parse_lexicon(lines, category_mapping):
         yield parts[0], [category_mapping[category_id] for category_id in parts[1:]]
 
 
-def read_dic(filepath):
+def read_dic(filepath, encoding = "utf-8"):
     """
     Reads a LIWC lexicon from a file in the .dic format, returning a tuple of
     (lexicon, category_names), where:
     * `lexicon` is a dict mapping string patterns to lists of category names
     * `category_names` is a list of category names (as strings)
     """
-    with open(filepath) as lines:
+    try:
+        with open(filepath) as lines:
         # read up to first "%" (should be very first line of file)
-        for line in lines:
-            if line.strip() == "%":
-                break
-        # read categories (a mapping from integer string to category name)
-        category_mapping = dict(_parse_categories(lines))
-        # read lexicon (a mapping from matching string to a list of category names)
-        lexicon = dict(_parse_lexicon(lines, category_mapping))
-    return lexicon, list(category_mapping.values())
+            for line in lines:
+                if line.strip() == "%":
+                    break
+            # read categories (a mapping from integer string to category name)
+            category_mapping = dict(_parse_categories(lines))
+            # read lexicon (a mapping from matching string to a list of category names)
+            lexicon = dict(_parse_lexicon(lines, category_mapping))
+        return lexicon, list(category_mapping.values())
+    except UnicodeDecodeError:
+        # decode with European languages with windows-1252 Danish, Dutch, English, French, German, Italian, Norwegian,
+        # Portuguese, Swedish
+        with open(filepath, encoding="windows-1252") as lines:
+        # read up to first "%" (should be very first line of file)
+            for line in lines:
+                if line.strip() == "%":
+                    break
+            # read categories (a mapping from integer string to category name)
+            category_mapping = dict(_parse_categories(lines))
+            # read lexicon (a mapping from matching string to a list of category names)
+            lexicon = dict(_parse_lexicon(lines, category_mapping))
+        return lexicon, list(category_mapping.values())
+    except UnicodeDecodeError as e:
+        print("encoding requires correct encoding")
+

@@ -9,7 +9,7 @@ except Exception:
     __version__ = None
 
 
-def load_token_parser(filepath):
+def load_token_parser(filepath, encoding = "utf-8"):
     """
     Reads a LIWC lexicon from a file in the .dic format, returning a tuple of
     (parse, category_names), where:
@@ -17,8 +17,12 @@ def load_token_parser(filepath):
       empty) of matching categories
     * `category_names` is a list of strings representing all LIWC categories in
       the lexicon
+    * `encoding = "utf-8"` can be overwritten by other encoding such as "EUC-JP" for Janpanese. 
+    * `load_token_parser()` now can read multiple dictionaries from the distributor such as Dutch_LIWC2015_Dictionary,
+    German_LIWC2001_Dictionary, Italian_LIWC2007_Dictionary, Italian_LIWC2007_Dictionary, LIWC2007_English, LIWC2015_English,
+    Spanish_LIWC2007_Dictionary as well as Swedish from the user.
     """
-    lexicon, category_names = read_dic(filepath)
+    lexicon, category_names = read_dic(filepath, encoding = encoding)
     trie = build_trie(lexicon)
 
     def parse_token(token):
